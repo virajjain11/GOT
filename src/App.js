@@ -1,7 +1,7 @@
 function App() {
   return (
     <div>
-      <h1>App is running</h1>
+      <h1 className="text-xl font-bold ">App is running</h1>
     </div>
   );
 }
