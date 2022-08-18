@@ -40,7 +40,6 @@ const HomeModal = () => {
         {data.length > 0 &&
           data.map((eachObj, index) => (
             <Card key={index} element={eachObj} resourceType={resourceType} />
-            // <div>hii</div>
           ))}
       </div>
       <button onClick={handlePrevious}>Previous</button>
