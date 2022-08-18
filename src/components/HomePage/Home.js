@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap mx-auto">
         {books.length > 0 &&
           books.map((eachObj, index) => <Card key={index} element={eachObj} />)}
       </div>
