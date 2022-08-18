@@ -1,8 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ element }) => {
-  const date = new Date(element.released).toDateString();
-  const authors = element.authors.join(", ");
+  const navigate = useNavigate();
+
   const arr = element.url.split("/");
   const [id, type] = [Number(arr[arr.length - 1]), arr[arr.length - 2]];
 
@@ -14,7 +15,12 @@ const Card = ({ element }) => {
         <p> country: {element.country}</p>
         <p> Total characters :{element.characters.length}</p>
         {/* <p> mediaType: {element.mediaType}</p> */}
-        <button className="bg-slate-400 p-1 rounded-sm">know more...</button>
+        <button
+          className="bg-slate-400 p-1 rounded-sm"
+          onClick={() => navigate(`/${type}/${id}`)}
+        >
+          know more...
+        </button>
       </div>
     </>
   );
