@@ -12,14 +12,28 @@ export const fetchAllBooks = createAsyncThunk("fetchBooks", async () => {
   };
 });
 
+export const fetchItems = createAsyncThunk(
+  "fetchBook",
+  async ({ type, id }) => {
+    // console.log(type, id);
+    const books = await Api.get(`${type}/${id}`);
+    return books.data;
+  }
+);
+
 const Slice = createSlice({
   name: "books",
   initialState: {
     AllBooks: {},
     characters: {},
     houses: {},
+    individualItem: {},
   },
-  reducers: {},
+  reducers: {
+    removeIndividualItem: (state) => {
+      state.individualItem = {};
+    },
+  },
   extraReducers: {
     [fetchAllBooks.fulfilled]: (state, { payload }) => {
       //   console.log("payload", payload);
@@ -30,8 +44,12 @@ const Slice = createSlice({
         houses: payload.houses,
       };
     },
+
+    [fetchItems.fulfilled]: (state, { payload }) => {
+      return { ...state, individualItem: payload };
+    },
   },
 });
 
-// export cons
+export const { removeIndividualItem } = Slice.actions;
 export default Slice.reducer;

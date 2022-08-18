@@ -1,19 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllBooks } from "../../features/Slice";
+import { fetchAllBooks, removeIndividualItem } from "../../features/Slice";
 import Card from "../Card.js/Card";
 
 const Home = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchAllBooks());
+    dispatch(removeIndividualItem());
   }, []);
-  //   const books = useSelector((state) => console.log(state));
+
   const {
     AllBooks: books,
     characters,
     houses,
+    individualItem,
   } = useSelector((state) => state.books);
+
   return (
     <div>
       <h1>Home</h1>
