@@ -1,8 +1,13 @@
+import Home from "./components/HomePage/Home";
+import { Provider } from "react-redux";
+import { store } from "./features/store";
 function App() {
   return (
-    <div>
-      <h1 className="text-xl font-bold ">App is running</h1>
-    </div>
+    <>
+      <Provider store={store}>
+        <Home />
+      </Provider>
+    </>
   );
 }
 
