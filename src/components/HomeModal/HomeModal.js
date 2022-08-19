@@ -25,7 +25,7 @@ const HomeModal = () => {
   }, [resourceType, id]);
 
   const handleNext = () => {
-    setId((prev) => prev + 1);
+    if (resourceType !== "books") setId((prev) => prev + 1);
   };
 
   const handlePrevious = () => {
@@ -35,15 +35,26 @@ const HomeModal = () => {
   console.log(data);
   return (
     <div>
-      <h1>Home</h1>
       <div className="flex flex-wrap mx-auto">
         {data.length > 0 &&
           data.map((eachObj, index) => (
             <Card key={index} element={eachObj} resourceType={resourceType} />
           ))}
       </div>
-      <button onClick={handlePrevious}>Previous</button>
-      <button onClick={handleNext}>Next</button>
+      <div className=" w-[300px] mx-auto space-x-4 my-10">
+        <button
+          onClick={handlePrevious}
+          className=" text-indigo-50 rounded-sm p-2  bg-violet-500 hover:bg-violet-600 active:bg-violet-700 active:ring active:ring-violet-300 "
+        >
+          Previous
+        </button>
+        <button
+          onClick={handleNext}
+          className=" text-indigo-50 rounded-sm p-2 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 active:ring active:ring-violet-300  ease-in-out"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
