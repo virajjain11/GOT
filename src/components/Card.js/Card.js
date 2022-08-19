@@ -48,10 +48,7 @@ const Card = ({ element, resourceType }) => {
 
   return (
     <>
-      <div
-        className="m-4 shadow-xl	 sm:min-w-[450px] min-w-[85%] space-y-2 bg-[#272727
-      ]  rounded-md max-w-[400px] "
-      >
+      <div className="m-4 shadow-xl	 sm:min-w-[370px] min-w-[85%] space-y-2   rounded-md max-w-[370px] ">
         <div className="font-semibold tracking-wider text-lg text-center bg-[#B4C7D9] rounded-t-md py-4">
           {resourceName}
         </div>
