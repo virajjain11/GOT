@@ -15,17 +15,29 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-around w-[30%] mt-10">
-      {resourceTypes.map((resources, index) => {
-        return (
-          <>
-            <p key={index} id={resources} onClick={handleDispatch}>
-              {resources}
-            </p>
-          </>
-        );
-      })}
-    </div>
+    <>
+      <div className="flex flex-col md:flex-row justify-around mt-10 space-y-2">
+        <h1 className="text-3xl font-bold tracking-widest mx-auto md:mx-0">
+          GOT FANDOM
+        </h1>
+        <div className="flex justify-around md:w-[30%] md:max-w-[400px]">
+          {resourceTypes.map((resources, index) => {
+            return (
+              <>
+                <p
+                  className="text-lg font-semibold"
+                  key={index}
+                  id={resources}
+                  onClick={handleDispatch}
+                >
+                  {resources}
+                </p>
+              </>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 };
 
