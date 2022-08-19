@@ -48,26 +48,32 @@ const Card = ({ element, resourceType }) => {
 
   return (
     <>
-      <div className="m-2 sm:min-w-[450px] min-w-[85%] space-y-2 bg-orange-300  rounded-md">
-        <div className="font-semibold text-lg text-center bg-slate-500">
+      <div
+        className="m-4 shadow-xl	 sm:min-w-[450px] min-w-[85%] space-y-2 bg-[#272727
+      ]  rounded-md max-w-[400px] "
+      >
+        <div className="font-semibold tracking-wider text-lg text-center bg-[#B4C7D9] rounded-t-md py-4">
           {resourceName}
         </div>
-        <h1 className="font-semibold text-lg text-center">{heading}</h1>
-        {Object.entries(resourceData).map((arr, idx) => {
-          return (
-            <>
-              <p key={idx}>
-                {arr[0]} : {arr[1]}
-              </p>
-            </>
-          );
-        })}
-        <button
-          className="bg-slate-400 px-2 py-1 rounded-sm"
-          onClick={() => navigate(`/${type}/${id}`)}
-        >
-          know more...
-        </button>
+        <div className="p-3">
+          <h1 className="font-semibold text-lg text-center pb-3">{heading}</h1>
+          {Object.entries(resourceData).map((arr, idx) => {
+            return (
+              <>
+                <p key={idx}>
+                  {arr[0]} : {arr[1]}
+                </p>
+              </>
+            );
+          })}
+          <button
+            // className="bg-slate-400 px-2 py-1 rounded-sm"
+            className="text-[#0D4E89] pt-2"
+            onClick={() => navigate(`/${type}/${id}`)}
+          >
+            Read more...
+          </button>
+        </div>
       </div>
     </>
   );

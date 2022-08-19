@@ -13,10 +13,12 @@ const CardDetails = () => {
   }, []);
 
   let resourceData;
+  let resourceName;
   let heading;
   if (Object.keys(data).length !== 0) {
     switch (resourceType) {
       case "books":
+        resourceName = "Books";
         heading = data.name;
         resourceData = {
           Authors: data.authors.join(", "),
@@ -30,6 +32,8 @@ const CardDetails = () => {
         break;
 
       case "characters":
+        resourceName = "Characters";
+
         heading = data.name ? data.name : `Character ${id}`;
         resourceData = {
           id: id,
@@ -44,6 +48,7 @@ const CardDetails = () => {
         break;
       case "houses":
         heading = data.name;
+        resourceName = "Houses";
 
         resourceData = {
           Region: data.region,
@@ -65,15 +70,21 @@ const CardDetails = () => {
   return (
     <>
       {Object.keys(data).length !== 0 && (
-        <div className="bg-slate-300  w-[300px] md:w-[600px]  m-[2%] pb-4">
-          <h1 className="font-semibold text-xl tracking-wider text-center pt-4">
+        <div className=" shadow-lg w-[300px] md:w-[600px]  m-[2%] pb-4">
+          <h1 className=" bg-[#B4C7D9] font-semibold text-xl tracking-wider text-center py-4 ">
+            {resourceName}
+          </h1>
+
+          <h1 className="font-semibold text-xl tracking-wider text-center py-4">
             {heading}
           </h1>
-          {Object.entries(resourceData).map((array, idx) => (
-            <p key={idx} className="pl-2 pb-2">
-              {array[0]} : {array[1]}
-            </p>
-          ))}
+          <div className="pl-2 text-base	">
+            {Object.entries(resourceData).map((array, idx) => (
+              <p key={idx} className="pl-2 pb-2">
+                {array[0]} : {array[1]}
+              </p>
+            ))}
+          </div>
         </div>
       )}
     </>

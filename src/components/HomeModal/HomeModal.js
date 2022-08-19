@@ -31,10 +31,9 @@ const HomeModal = () => {
     if (id > 2) setId((prev) => prev - 1);
   };
 
-  console.log(data);
   return (
-    <div>
-      <div className="flex flex-wrap mx-auto">
+    <div className="max-w-[1500px] mx-auto">
+      <div className="flex flex-wrap">
         {data.length > 0 &&
           data.map((eachObj, index) => (
             <Card key={index} element={eachObj} resourceType={resourceType} />
@@ -43,13 +42,13 @@ const HomeModal = () => {
       <div className=" w-[300px] mx-auto space-x-4 my-10">
         <button
           onClick={handlePrevious}
-          className=" text-indigo-50 rounded-sm p-2  bg-violet-500 hover:bg-violet-600 active:bg-violet-700 active:ring active:ring-violet-300 "
+          className="text-lg	 text-white rounded-sm py-2 px-5 bg-[#0D4E89] hover:text-slate-600 hover:bg-[#B4C7D9] active:bg-[#082E50] active:text-white active:ring active:ring-[#0D4E89] ease-in-out"
         >
           Previous
         </button>
         <button
           onClick={handleNext}
-          className=" text-indigo-50 rounded-sm p-2 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 active:ring active:ring-violet-300  ease-in-out"
+          className="text-lg	 text-white rounded-sm py-2 px-5 bg-[#0D4E89] hover:text-slate-600 hover:bg-[#B4C7D9] active:bg-[#082E50] active:text-white active:ring active:ring-[#0D4E89] ease-in-out"
         >
           Next
         </button>
