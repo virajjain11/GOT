@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-around mt-10 space-y-2">
+      <div className="flex flex-col md:flex-row justify-around my-10 space-y-5">
         <h1 className="text-3xl font-bold tracking-widest mx-auto md:mx-0">
           GOT FANDOM
         </h1>

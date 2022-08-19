@@ -57,9 +57,7 @@ const CardDetails = () => {
           seats: data.seats.join(", "),
           swornMembers: data.swornMembers.length,
           titles: data.titles.length - 1,
-
           words: data.words,
-          // "Total characters": element.characters.length,
         };
         break;
       default:
@@ -70,8 +68,8 @@ const CardDetails = () => {
   return (
     <>
       {Object.keys(data).length !== 0 && (
-        <div className=" shadow-lg w-[300px] md:w-[600px]  m-[2%] pb-4">
-          <h1 className=" bg-[#B4C7D9] font-semibold text-xl tracking-wider text-center py-4 ">
+        <div className=" shadow-lg w-[300px] md:w-[600px] rounded-md  m-[2%] pb-4">
+          <h1 className=" bg-[#B4C7D9] font-semibold text-xl rounded-t-md tracking-wider text-center py-4 ">
             {resourceName}
           </h1>
 
