@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setResourceType } from "../../features/Slice";
+import { setResourceType } from "../../features/ResourceSlice";
 
 const Navbar = () => {
   const resourceTypes = ["Books", "Characters", "Houses"];

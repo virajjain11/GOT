@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData, removeIndividualItem } from "../../features/Slice";
+import {
+  fetchData,
+  removeIndividualResource,
+} from "../../features/ResourceSlice";
 import Card from "../Card.js/Card";
 
 const HomeModal = () => {
   const [id, setId] = useState(1);
   const dispatch = useDispatch();
-  // const name = "characters";
 
   useEffect(() => {
-    dispatch(removeIndividualItem());
+    dispatch(removeIndividualResource());
   }, []);
 
-  const {
-    // individualItem,
-    resourceType,
-    general: data,
-  } = useSelector((state) => state.books);
+  const { resourceType, individualResourceData: data } = useSelector(
+    (state) => state.resources
+  );
 
-  // const resourceType = "characters";
   useEffect(() => {
     dispatch(fetchData({ type: resourceType, id: id }));
-    dispatch(removeIndividualItem());
+    dispatch(removeIndividualResource());
   }, [resourceType, id]);
 
   const handleNext = () => {

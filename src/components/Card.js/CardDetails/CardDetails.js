@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchItems } from "../../../features/Slice";
+import { fetchItems } from "../../../features/ResourceSlice";
 
 const CardDetails = () => {
   const { resourceType, id } = useParams();
   const dispatch = useDispatch();
-  const { individualItem: data } = useSelector((state) => state.books);
+  const { individualResource: data } = useSelector((state) => state.resources);
 
   useEffect(() => {
     dispatch(fetchItems({ type: resourceType, id: id }));

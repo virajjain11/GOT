@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import bookSlice from "./Slice";
+import gotResources from "./ResourceSlice";
 export const store = configureStore({
   reducer: {
-    books: bookSlice,
+    resources: gotResources,
   },
 });
