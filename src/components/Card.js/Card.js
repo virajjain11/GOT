@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Card = ({ element, resourceType }) => {
   const navigate = useNavigate();
+  let resourceName;
   let resourceData;
   let heading;
   const resourceDetails = element.url.split("/");
@@ -14,6 +15,7 @@ const Card = ({ element, resourceType }) => {
   switch (resourceType) {
     case "books":
       heading = element.name;
+      resourceName = "Books";
       resourceData = {
         Authors: element.authors?.join(", "),
         country: element.country,
@@ -22,6 +24,7 @@ const Card = ({ element, resourceType }) => {
       break;
 
     case "characters":
+      resourceName = "Characters";
       heading = element.name ? element.name : `Character ${id}`;
       resourceData = {
         Aliases:
@@ -31,6 +34,7 @@ const Card = ({ element, resourceType }) => {
       break;
 
     case "houses":
+      resourceName = "Houses";
       heading = element.name;
       resourceData = {
         Region: element.region,
@@ -44,7 +48,10 @@ const Card = ({ element, resourceType }) => {
 
   return (
     <>
-      <div className="m-2 sm:min-w-[450px] min-w-[85%] space-y-2 bg-orange-300 p-2 rounded-md">
+      <div className="m-2 sm:min-w-[450px] min-w-[85%] space-y-2 bg-orange-300  rounded-md">
+        <div className="font-semibold text-lg text-center bg-slate-500">
+          {resourceName}
+        </div>
         <h1 className="font-semibold text-lg text-center">{heading}</h1>
         {Object.entries(resourceData).map((arr, idx) => {
           return (
